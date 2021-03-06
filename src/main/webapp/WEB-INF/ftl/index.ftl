@@ -1,5 +1,3 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +38,7 @@
 			<!--navbar-header-->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="/book/list.do" class="active">首页</a></li>
+					<li><a href="/index" class="active">首页</a></li>
 					
 				</ul>
 			</div>
@@ -89,9 +87,9 @@
 								<h5 class="item_price">￥50</h5>
 							</div>
 							<div class="rating">
-								<c:forEach begin="1" end="5" var="i">
+								<#list 1..5 as x>
 									<span>☆</span>
-								</c:forEach>
+								</#list>
 							</div>
 							<div class="clearfix"></div>
 						</div>

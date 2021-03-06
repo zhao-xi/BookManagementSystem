@@ -8,6 +8,14 @@ public class Category {
     private Date createTime;
     private Date updateTime;
 
+    public Category() { }
+
+    public Category(String name) {
+        this.name = name;
+        this.createTime = new Date();
+        this.updateTime = new Date();
+    }
+
     public Long getId() {
         return id;
     }
