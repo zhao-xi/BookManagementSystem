@@ -1,10 +1,12 @@
+<%@page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>新建</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/add.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/add.css">
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -24,7 +26,7 @@
             <div class="page-header">
                 <h3><small>新建</small></h3>
             </div>
-            <form class="form-horizontal" action="/dept/add.do" method="post">
+            <form class="form-horizontal" action="/category/add.do" method="post">
                 <div class="form-group">
                     <label for="name" class="col-sm-2 control-label">名称 ：</label>
                     <div class="col-sm-8">

@@ -1,26 +1,25 @@
+<%@page contentType="text/html;charset=UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>图书列表</title>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/index.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
     </head>
 
     <body>
        <header>
             <div class="container">
-               
+               <c:forEach items="${categories}" var="category" varStatus="status">
                     <nav>
-                            <a href="" >Java</a>
+                            <a href="/management?category=${category.id}">${category.name}</a>
                     </nav>
+               </c:forEach>
                     <nav>
-                            <a href="" >前端</a>
+                        <a href="/management?target=category">分类</a>
                     </nav>
-                    <nav>
-                        <a href="" >分类</a>
-                    </nav>
-               
             </div>
         </header>
         <section class="banner">
@@ -43,14 +42,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${depts}" var="dept">
+                        <c:forEach items="${books}" var="book">
                             <tr>
-                                <td>Java</td>
-                                <td>1</td>
-                                <td></td>
-                                <td></td>
-                               
-
+                                <td>${book.name}</td>
+                                <td>${book.categoryId}</td>
+                                <td>${book.createTime}</td>
+                                <td>${book.updateTime}</td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -60,7 +57,7 @@
         <section class="page">
             <div class="container">
                 <div id="fatie">
-                    <a href=""><button>新建</button></a>
+                    <a href="/page/add_book"><button>新建</button></a>
                 </div>
             </div>
         </section>

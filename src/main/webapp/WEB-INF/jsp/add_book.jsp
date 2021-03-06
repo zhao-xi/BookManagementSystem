@@ -1,10 +1,12 @@
+<%@page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>新建</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/add.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/add.css">
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -36,9 +38,9 @@
                         <label class="col-sm-2 control-label">分类 ：</label>
                         <select name="categoryId" class="col-sm-2 form-control" style="width: auto">
                                 <!-- 此处数据需要从数据库中读取 -->
-                                <option id="1" value="Java">Java</option>
-                                <option id="2" value="Java">前端</option>
-                           
+                            <c:forEach items="${categories}" var="category" varStatus="status">
+                                <option id="${status.index}" value="${category.id}">${category.name}</option>
+                            </c:forEach>
                         </select>
                     </div>
                     <div class="form-group">

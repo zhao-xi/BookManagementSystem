@@ -13,7 +13,7 @@ import java.util.List;
 
 @WebServlet(name = "IndexServlet", urlPatterns = "/index")
 public class IndexServlet extends HttpServlet {
-    BookService bookService = new BookService();
+    private BookService bookService = new BookService();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doGet(request, response);
     }

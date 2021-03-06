@@ -6,4 +6,10 @@
     <select id="selectAll" resultType="entity.Category">
         select * from category
     </select>
+    <select id="selectById" resultType="entity.Category" parameterType="Long">
+        select * from category where id = #{value}
+    </select>
+    <insert id="insert" parameterType="entity.Category" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        insert into category(name, create_time) values(#{name}, #{createTime})
+    </insert>
 </mapper>

@@ -6,4 +6,13 @@
     <select id="selectAll" resultType="entity.Book">
         select * from book
     </select>
+    <select id="selectById" resultType="entity.Book" parameterType="Long">
+        select * from book where id = #{value}
+    </select>
+    <select id="selectByCategoryId" resultType="entity.Book" parameterType="Long">
+        select * from book where category_id = #{value}
+    </select>
+    <insert id="insert" parameterType="entity.Book" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+        insert into book(category_id, name, level, price, img_path, create_time) values(#{categoryId}, #{name}, #{level}, #{price}, #{imgPath}, #{createTime})
+    </insert>
 </mapper>

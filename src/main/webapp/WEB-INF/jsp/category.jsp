@@ -1,24 +1,24 @@
+<%@page contentType="text/html;charset=UTF-8" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>分类列表</title>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/index.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
     </head>
 
     <body>
        <header>
             <div class="container">
-               
+                <c:forEach items="${categories}" var="category" varStatus="status">
                     <nav>
-                            <a href="" >Java</a>
+                        <a href="/management?category=${category.id}">${category.name}</a>
                     </nav>
+                </c:forEach>
                     <nav>
-                            <a href="" >前端</a>
-                    </nav>
-                    <nav>
-                        <a href="" >分类</a>
+                        <a href="/management?target=book">图书</a>
                     </nav>
                
             </div>
@@ -42,13 +42,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${depts}" var="dept">
+                        <c:forEach items="${categories}" var="category">
                             <tr>
-                                <td>Java</td>
-                                <td></td>
-                                <td></td>
-                               
-
+                                <td>${category.name}</td>
+                                <td>${category.createTime}</td>
+                                <td>${category.updateTime}</td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -58,7 +56,7 @@
         <section class="page">
             <div class="container">
                 <div id="fatie">
-                    <a href=""><button>新建</button></a>
+                    <a href="/page/add_category"><button>新建</button></a>
                 </div>
             </div>
         </section>

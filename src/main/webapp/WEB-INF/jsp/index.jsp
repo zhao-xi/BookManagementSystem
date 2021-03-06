@@ -72,10 +72,10 @@
 <div class="gallery">
 	<div class="container">
 		<div class="gallery-grids">
-			
+			<c:forEach var="book" items="${books}" varStatus="status">
 				<div class="col-md-3 gallery-grid " style="float:left">
 					<a href="#">
-						<img src="img\\Java.jpg" class="img-responsive" alt=""/>
+						<img src="${book.imgPath}" class="img-responsive" alt=""/>
 						<div class="gallery-info">
 							<p><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> view</p>
 							<a class="shop" href="single.html">SHOP NOW</a>
@@ -83,10 +83,10 @@
 						</div>
 					</a>
 					<div class="galy-info">
-						<p style="size: 30px">Java基础</p>
+						<p style="size: 30px">${book.name}</p>
 						<div class="galry">
 							<div class="prices">
-								<h5 class="item_price">￥50</h5>
+								<h5 class="item_price">￥${book.price}</h5>
 							</div>
 							<div class="rating">
 								<c:forEach begin="1" end="5" var="i">
@@ -97,7 +97,7 @@
 						</div>
 					</div>
 				</div>
-			
+			</c:forEach>
 		</div>
 		<div  align="right">
 			<!-- 分页部分可以参照MyBatis拦截器的例子-->
