@@ -1,13 +1,22 @@
-@javax.servlet.annotation.WebFilter(filterName = "CharacterEncodingFilter")
-public class CharacterEncodingFilter implements javax.servlet.Filter {
+package filter;
+
+import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
+import java.io.IOException;
+
+@WebFilter(filterName = "CharacterEncodingFilter", urlPatterns = "/*")
+public class CharacterEncodingFilter implements Filter {
     public void destroy() {
     }
 
-    public void doFilter(javax.servlet.ServletRequest req, javax.servlet.ServletResponse resp, javax.servlet.FilterChain chain) throws javax.servlet.ServletException, java.io.IOException {
+    public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
+        resp.setCharacterEncoding("utf-8");
+        resp.setContentType("text/html;charset=UTF-8");
         chain.doFilter(req, resp);
     }
 
-    public void init(javax.servlet.FilterConfig config) throws javax.servlet.ServletException {
+    public void init(FilterConfig config) throws ServletException {
 
     }
 
